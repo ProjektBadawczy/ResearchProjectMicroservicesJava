@@ -1,0 +1,28 @@
+version: "3.4"
+
+services:
+  api-gateway:
+    build:
+      context: ./ApiGateway
+    ports:
+      - "8081:8081"
+      
+  eureka-server:
+    build:
+      context: ./EurekaServer
+      
+  graph-service:
+    build:
+      context: ./GraphService
+      
+  bfs-service:
+    build:
+      context: ./BFSService
+      
+  edmonds-karp-service:
+    build:
+      context: ./EdmondsKarpService
+      
+  push-relabel-service:
+    build:
+      context: ./PushRelabelService

@@ -12,10 +12,10 @@ public class PushRelabelService {
 
     private DirectedGraph initResidualGraph(DirectedGraph graph)
     {
-        DirectedGraph residualGraph = new DirectedGraph(graph.getVertices(), graph.getId());
+        DirectedGraph residualGraph = new DirectedGraph(graph.getNumberOfVertices(), graph.getId());
 
         // Construct residual graph
-        for (int u = 0; u < graph.getVertices(); u++) {
+        for (int u = 0; u < graph.getNumberOfVertices(); u++) {
 
             for (Vertex v : graph.getAdjacencyList().get(u)) {
 
@@ -47,15 +47,15 @@ public class PushRelabelService {
 
         // Step 1: Initialize pre-flow
         // to store excess flow
-        int[] e = new int[graph.getVertices()];
+        int[] e = new int[graph.getNumberOfVertices()];
 
         // to store height of vertices
-        int[] h = new int[graph.getVertices()];
+        int[] h = new int[graph.getNumberOfVertices()];
 
-        boolean[] inQueue = new boolean[graph.getVertices()];
+        boolean[] inQueue = new boolean[graph.getNumberOfVertices()];
 
         // set the height of source to V
-        h[source] = graph.getVertices();
+        h[source] = graph.getNumberOfVertices();
 
         // send maximum flow possible
         // from source to all its adjacent vertices

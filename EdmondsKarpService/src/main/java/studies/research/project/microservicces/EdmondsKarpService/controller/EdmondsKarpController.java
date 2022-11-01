@@ -25,8 +25,8 @@ public class EdmondsKarpController {
         this.urlDiscoverer = urlDiscoverer;
     }
 
-    @GetMapping("/graphs/edmondsKarpMaxFlow/{id}")
-    public ResponseEntity<Integer> getEdmondsKarpMaxGraphFlow(@PathVariable("id") String id, @RequestParam String source, @RequestParam String destination) {
+    @GetMapping("/edmondsKarpMaxGraphFlow")
+    public ResponseEntity<Integer> getEdmondsKarpMaxGraphFlow(@RequestParam("id") String id, @RequestParam String source, @RequestParam String destination) {
         return Try.of(() -> new RestTemplate().getForEntity(urlDiscoverer.getGraphServiceUrl(id), Graph.class).getBody())
                 .map(graph -> {
                     int s = Integer.parseInt(source);

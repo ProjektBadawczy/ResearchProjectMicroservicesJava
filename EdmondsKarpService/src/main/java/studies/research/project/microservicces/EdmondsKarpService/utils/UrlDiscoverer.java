@@ -18,12 +18,12 @@ public class UrlDiscoverer {
 
     public String getGraphServiceUrl(String graphId) {
         String baseUrl = getServiceBaseUrl(GRAPH_SERVICE_NAME);
-        return baseUrl + "/graphs/" + graphId;
+        return baseUrl + "/graph?id=" + graphId;
     }
 
     public String getDirectedGraphServiceUrl(String graphId) {
         String baseUrl = getServiceBaseUrl(GRAPH_SERVICE_NAME);
-        return baseUrl + "/directedGraphs/" + graphId;
+        return baseUrl + "/directedGraph?id=" + graphId;
     }
 
     public String getBfsServiceUrl() {

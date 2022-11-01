@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8001
 
 eureka:
   client:
@@ -15,12 +15,12 @@ spring:
         - id: edmonds-karp-service
           uri: lb://EDMONDS-KARP-SERVICE
           predicates:
-            - Path=/graphs/edmondsKarpMaxFlow/**
+            - Path=/edmondsKarpMaxGraphFlow/**
         - id: push-relabel-service
           uri: lb://PUSH-RELABEL-SERVICE
           predicates:
-            - Path=/graphs/pushRelabelMaxFlow/**
+            - Path=/pushRelabelMaxGraphFlow/**
         - id: graph-service
           uri: lb://GRAPH-SERVICE
           predicates:
-            - Path=/graphs/**
+            - Path=/graph/**,/directedGraph/**

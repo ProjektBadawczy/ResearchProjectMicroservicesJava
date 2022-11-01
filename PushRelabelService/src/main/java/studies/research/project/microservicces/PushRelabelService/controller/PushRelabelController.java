@@ -26,8 +26,8 @@ public class PushRelabelController {
         this.urlDiscoverer = urlDiscoverer;
     }
 
-    @GetMapping("/graphs/pushRelabelMaxFlow/{id}")
-    public ResponseEntity<Integer> getPushRelabelMaxGraphFlow(@PathVariable("id") String id, @RequestParam String source, @RequestParam String destination) {
+    @GetMapping("/pushRelabelMaxGraphFlow")
+    public ResponseEntity<Integer> getPushRelabelMaxGraphFlow(@RequestParam("id") String id, @RequestParam String source, @RequestParam String destination) {
 
         return Try.of(() -> new RestTemplate().getForEntity(urlDiscoverer.getDirectedGraphServiceUrl(id), DirectedGraph.class).getBody())
                 .map(graph -> {

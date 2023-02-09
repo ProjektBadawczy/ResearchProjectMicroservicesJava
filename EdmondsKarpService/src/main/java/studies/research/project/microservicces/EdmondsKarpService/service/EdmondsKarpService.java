@@ -6,19 +6,13 @@ import graph.model.DirectedGraph;
 import graph.model.Graph;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import studies.research.project.microservicces.EdmondsKarpService.utils.UrlDiscoverer;
-
-import java.util.Map;
-
 import static java.lang.Math.min;
 
 @Service
 public class EdmondsKarpService {
 
-    private final UrlDiscoverer urlDiscoverer;
+    public EdmondsKarpService() {
 
-    public EdmondsKarpService(UrlDiscoverer urlDiscoverer) {
-        this.urlDiscoverer = urlDiscoverer;
     }
 
     public int calculateMaxFlow(Graph graph, int source, int destination) {
@@ -29,7 +23,8 @@ public class EdmondsKarpService {
         int u, v;
         Graph residualGraph = graph.clone();
         int max_flow = 0;
-        BFSResult bfsResult = new RestTemplate().postForObject(urlDiscoverer.getBfsServiceUrl(), new BFSRequest(residualGraph, source, destination), BFSResult.class);
+        String bfsServiceUrl = "http://bfs-service:80/bfs";
+        BFSResult bfsResult = new RestTemplate().postForObject(bfsServiceUrl, new BFSRequest(residualGraph, source, destination), BFSResult.class);
         while (bfsResult.success()) {
             int path_flow = Integer.MAX_VALUE;
             for (v = destination; v != source; v = bfsResult.parents()[v]) {

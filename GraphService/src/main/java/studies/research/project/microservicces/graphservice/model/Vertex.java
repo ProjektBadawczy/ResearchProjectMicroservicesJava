@@ -3,11 +3,13 @@ package studies.research.project.microservicces.graphservice.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
-public class GraphsContainer {
-    private Graph graph;
-    private DirectedGraph directedGraph;
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Vertex {
+    private int i;
+    private int w;
 }

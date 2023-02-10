@@ -1,4 +1,4 @@
-package studies.research.project.microservicces.GraphService.graphloader;
+package studies.research.project.microservicces.graphservice.graphloader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Try;
@@ -6,8 +6,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Component;
-import studies.research.project.microservicces.GraphService.model.GraphsContainer;
-
+import studies.research.project.microservicces.graphservice.model.GraphsContainer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;

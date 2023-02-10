@@ -1,8 +1,7 @@
-package studies.research.project.microservicces.BFSService.service;
+package studies.research.project.microservicces.bfsservice.service;
 
-import graph.model.BFSResult;
-import graph.model.Graph;
 import org.springframework.stereotype.Service;
+import studies.research.project.microservicces.bfsservice.model.*;
 
 import java.util.LinkedList;
 

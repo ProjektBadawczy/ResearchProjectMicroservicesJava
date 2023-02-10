@@ -1,13 +1,13 @@
-package studies.research.project.microservicces.EdmondsKarpService.controller;
+package studies.research.project.microservicces.edmondskarpservice.controller;
 
-import graph.model.Graph;
 import io.vavr.control.Try;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import studies.research.project.microservicces.EdmondsKarpService.service.EdmondsKarpService;
+import studies.research.project.microservicces.edmondskarpservice.model.Graph;
+import studies.research.project.microservicces.edmondskarpservice.service.EdmondsKarpService;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;

@@ -1,11 +1,9 @@
-package studies.research.project.microservicces.PushRelabelService;
+package studies.research.project.microservicces.pushrelabelservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 public class PushRelabelServiceApplication {
 
 	public static void main(String[] args) {

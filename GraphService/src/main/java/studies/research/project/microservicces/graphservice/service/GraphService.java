@@ -1,9 +1,10 @@
-package studies.research.project.microservicces.GraphService.service;
+package studies.research.project.microservicces.graphservice.service;
 
-import graph.model.DirectedGraph;
-import graph.model.Graph;
 import org.springframework.stereotype.Service;
-import studies.research.project.microservicces.GraphService.repository.GraphRepository;
+import studies.research.project.microservicces.graphservice.model.DirectedGraph;
+import studies.research.project.microservicces.graphservice.model.Graph;
+import studies.research.project.microservicces.graphservice.repository.GraphRepository;
+
 
 @Service
 public class GraphService {

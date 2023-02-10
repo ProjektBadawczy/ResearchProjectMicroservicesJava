@@ -1,10 +1,9 @@
-package studies.research.project.microservicces.BFSService.controller;
+package studies.research.project.microservicces.bfsservice.controller;
 
-import graph.model.BFSRequest;
-import graph.model.BFSResult;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import studies.research.project.microservicces.BFSService.service.BfsService;
+import studies.research.project.microservicces.bfsservice.model.*;
+import studies.research.project.microservicces.bfsservice.service.BfsService;
 
 import static org.springframework.http.HttpStatus.OK;
 

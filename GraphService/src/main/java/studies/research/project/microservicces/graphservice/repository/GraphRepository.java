@@ -1,14 +1,12 @@
-package studies.research.project.microservicces.GraphService.repository;
+package studies.research.project.microservicces.graphservice.repository;
 
-import graph.model.DirectedGraph;
-import graph.model.Graph;
 import org.springframework.stereotype.Repository;
-import studies.research.project.microservicces.GraphService.graphloader.GraphLoader;
-import studies.research.project.microservicces.GraphService.model.GraphsContainer;
-
+import studies.research.project.microservicces.graphservice.graphloader.GraphLoader;
+import studies.research.project.microservicces.graphservice.model.DirectedGraph;
+import studies.research.project.microservicces.graphservice.model.Graph;
+import studies.research.project.microservicces.graphservice.model.GraphsContainer;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

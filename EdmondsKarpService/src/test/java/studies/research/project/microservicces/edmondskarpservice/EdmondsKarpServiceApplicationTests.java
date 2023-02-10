@@ -1,4 +1,4 @@
-package studies.research.project.microservicces.EdmondsKarpService;
+package studies.research.project.microservicces.edmondskarpservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

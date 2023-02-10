@@ -1,9 +1,7 @@
-package studies.research.project.microservicces.PushRelabelService.service;
+package studies.research.project.microservicces.pushrelabelservice.service;
 
-import graph.model.DirectedGraph;
-import graph.model.Vertex;
 import org.springframework.stereotype.Service;
-
+import studies.research.project.microservicces.pushrelabelservice.model.*;
 import java.util.ArrayList;
 import java.util.List;
 

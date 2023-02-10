@@ -1,11 +1,9 @@
-package studies.research.project.microservicces.EdmondsKarpService.service;
+package studies.research.project.microservicces.edmondskarpservice.service;
 
-import graph.model.BFSRequest;
-import graph.model.BFSResult;
-import graph.model.DirectedGraph;
-import graph.model.Graph;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import studies.research.project.microservicces.edmondskarpservice.model.*;
+
 import static java.lang.Math.min;
 
 @Service
@@ -39,7 +37,7 @@ public class EdmondsKarpService {
             }
 
             max_flow += path_flow;
-            bfsResult = new RestTemplate().postForObject(urlDiscoverer.getBfsServiceUrl(), new BFSRequest(residualGraph, source, destination), BFSResult.class);
+            bfsResult = new RestTemplate().postForObject(bfsServiceUrl, new BFSRequest(residualGraph, source, destination), BFSResult.class);
         }
 
         return max_flow;

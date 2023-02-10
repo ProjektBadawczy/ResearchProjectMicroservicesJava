@@ -1,15 +1,13 @@
-package studies.research.project.microservicces.PushRelabelService.controller;
+package studies.research.project.microservicces.pushrelabelservice.controller;
 
-import graph.model.DirectedGraph;
 import io.vavr.control.Try;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import studies.research.project.microservicces.PushRelabelService.service.PushRelabelService;
-import studies.research.project.microservicces.PushRelabelService.utils.UrlDiscoverer;
-
+import studies.research.project.microservicces.pushrelabelservice.model.DirectedGraph;
+import studies.research.project.microservicces.pushrelabelservice.service.PushRelabelService;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;
 

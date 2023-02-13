@@ -4,36 +4,23 @@ services:
   graph-service:
     build:
       context: ./GraphService
-    networks:
-      - microservices-network
       
   bfs-service:
     build:
       context: ./BFSService
-    networks:
-      - microservices-network
       
   edmonds-karp-service:
     build:
       context: ./EdmondsKarpService
-    networks:
-      - microservices-network
-      
+
   push-relabel-service:
     build:
       context: ./PushRelabelService
-    networks:
-      - microservices-network
       
   nginx:
     image: nginx:latest
     container_name: nginx
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-    networks:
-      - microservices-network
     ports:
       - 8001:80
-      
-networks:
-  microservices-network:

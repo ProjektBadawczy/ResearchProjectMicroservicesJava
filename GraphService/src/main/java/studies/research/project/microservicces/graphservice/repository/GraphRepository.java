@@ -21,7 +21,7 @@ public class GraphRepository {
 
     @PostConstruct
     private void initializeGraphs() throws IOException {
-        List<GraphsContainer> graphsFromFile = graphLoader.loadGraphsFromFile("big_dense_set.json");
+        List<GraphsContainer> graphsFromFile = graphLoader.loadGraphsFromFile("random_set.json");
         graphs = graphsFromFile.stream()
                 .map(GraphsContainer::getGraph)
                 .toList();

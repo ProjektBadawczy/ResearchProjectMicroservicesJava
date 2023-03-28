@@ -1,4 +1,4 @@
-package studies.research.project.microservicces.GraphService;
+package studies.research.project.microservicces.graphservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package studies.research.project.microservicces.BFSService;
+package studies.research.project.microservicces.bfsservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

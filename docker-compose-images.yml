@@ -10,6 +10,8 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:8001"
       - "--log.level=DEBUG"
+    networks:
+      - proxy
     deploy:
       placement:
         constraints:
@@ -22,6 +24,8 @@ services:
       
   graph-service:
     image: weronikapiotrowska/java-graph-service
+    networks:
+      - proxy
     deploy:
       labels:
         - "traefik.enable=true"
@@ -31,6 +35,8 @@ services:
 
   bfs-service:
     image: weronikapiotrowska/java-bfs-service
+    networks:
+      - proxy
     deploy:
       labels:
         - "traefik.enable=true"
@@ -40,6 +46,8 @@ services:
 
   edmonds-karp-service:
     image: weronikapiotrowska/java-edmonds-karp-service
+    networks:
+      - proxy
     deploy:
       labels:
         - "traefik.enable=true"
@@ -49,9 +57,15 @@ services:
 
   push-relabel-service:
     image: weronikapiotrowska/java-push-relabel-service
+    networks:
+      - proxy
     deploy:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.push-relabel-service.rule=Path(`/pushRelabelMaxGraphFlow`)"
         - "traefik.http.routers.push-relabel-service.entrypoints=web"
         - "traefik.http.services.push-relabel-service.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    driver: overlay 

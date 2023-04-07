@@ -1,9 +1,5 @@
 version: "3.8"
 
-networks:
-  traefikee_ingress:
-    external: true
-
 services:
   traefik:
     image: traefik:latest
@@ -31,8 +27,6 @@ services:
         - "traefik.http.routers.graph-service.rule=Path(`/graph`)"
         - "traefik.http.routers.graph-service.entrypoints=web"
         - "traefik.http.services.graph-service.loadbalancer.server.port=80"
-    networks:
-      - traefikee_ingress
 
   bfs-service:
     image: weronikapiotrowska/java-bfs-service
@@ -42,8 +36,6 @@ services:
         - "traefik.http.routers.bfs-service.rule=Path(`/bfs`)"
         - "traefik.http.routers.bfs-service.entrypoints=web"
         - "traefik.http.services.bfs-service.loadbalancer.server.port=80"
-    networks:
-      - traefikee_ingress
 
   edmonds-karp-service:
     image: weronikapiotrowska/java-edmonds-karp-service
@@ -53,8 +45,6 @@ services:
         - "traefik.http.routers.edmonds-karp-service.rule=Path(`/edmondsKarpMaxGraphFlow`)"
         - "traefik.http.routers.edmonds-karp-service.entrypoints=web"
         - "traefik.http.services.edmonds-karp-service.loadbalancer.server.port=80"
-    networks:
-      - traefikee_ingress
 
   push-relabel-service:
     image: weronikapiotrowska/java-push-relabel-service
@@ -64,5 +54,3 @@ services:
         - "traefik.http.routers.push-relabel-service.rule=Path(`/pushRelabelMaxGraphFlow`)"
         - "traefik.http.routers.push-relabel-service.entrypoints=web"
         - "traefik.http.services.push-relabel-service.loadbalancer.server.port=80"
-    networks:
-      - traefikee_ingress

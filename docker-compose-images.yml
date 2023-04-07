@@ -9,6 +9,7 @@ services:
       - "--providers.docker.swarmmode=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:8001"
+      - "--log.level=DEBUG"
     deploy:
       placement:
         constraints:

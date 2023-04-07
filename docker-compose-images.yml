@@ -27,8 +27,8 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.graph-service.rule=Path(`/graph`)"
         - "traefik.http.routers.graph-service.entrypoints=web"
-
         - "traefik.http.services.graph-service.loadbalancer.server.port=80"
+
   bfs-service:
     image: weronikapiotrowska/java-bfs-service
     deploy:
@@ -36,6 +36,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.bfs-service.rule=Path(`/bfs`)"
         - "traefik.http.routers.bfs-service.entrypoints=web"
+        - "traefik.http.services.graph-service.loadbalancer.server.port=80"
       
   edmonds-karp-service:
     image: weronikapiotrowska/java-edmonds-karp-service
@@ -44,6 +45,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.edmonds-karp-service.rule=Path(`/edmondsKarpMaxGraphFlow`)"
         - "traefik.http.routers.edmonds-karp-service.entrypoints=web"
+        - "traefik.http.services.graph-service.loadbalancer.server.port=80"
       
   push-relabel-service:
     image: weronikapiotrowska/java-push-relabel-service
@@ -52,3 +54,4 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.push-relabel-service.rule=Path(`/pushRelabelMaxGraphFlow`)"
         - "traefik.http.routers.push-relabel-service.entrypoints=web"
+        - "traefik.http.services.graph-service.loadbalancer.server.port=80"

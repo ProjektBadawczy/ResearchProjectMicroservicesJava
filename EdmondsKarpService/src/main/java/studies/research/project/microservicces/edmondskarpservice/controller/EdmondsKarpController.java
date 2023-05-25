@@ -24,7 +24,7 @@ public class EdmondsKarpController {
     @GetMapping("/edmondsKarpMaxGraphFlow")
     public ResponseEntity<Integer> getEdmondsKarpMaxGraphFlow(@RequestParam("id") String id, @RequestParam String source, @RequestParam String destination) {
 
-        int maxFlow = (edmondsKarpService.calculateMaxFlow(Integer.parseInt(id), Integer.parseInt(source), Integer.parseInt(destination)));
+        int maxFlow = edmondsKarpService.calculateMaxFlow(Integer.parseInt(id), Integer.parseInt(source), Integer.parseInt(destination));
         return new ResponseEntity<>(maxFlow, OK);
 //        return Try.of(() -> new RestTemplate().getForEntity(graphServiceUrl, Graph.class).getBody())
 //                .map(graph -> {

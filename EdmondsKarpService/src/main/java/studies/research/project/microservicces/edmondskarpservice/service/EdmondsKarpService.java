@@ -14,8 +14,8 @@ public class EdmondsKarpService {
     }
 
     public int calculateMaxFlow(int id, int source, int destination) {
-        String graphServiceUrl = "http://graph-service:80/graph?id=" + id;
-        var graph = new RestTemplate().getForEntity(graphServiceUrl, Graph.class).getBody();
+        String graphServiceUrl = "http://graph-service:80/graph?id=".concat(Integer.toString(id));
+        Graph graph = new RestTemplate().getForEntity(graphServiceUrl, Graph.class).getBody();
         if(graph != null){
             int u, v;
             Graph residualGraph = graph.clone();

@@ -21,3 +21,21 @@ jobs:
           REMOTE_HOST: ${{ secrets.AWS_APPLICATION_DNS }}
           REMOTE_USER: ec2-user
           TARGET: /home/ec2-user
+          
+      - name: docker-compose build
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.AWS_APPLICATION_DNS }}
+          username: ec2-user
+          port: 22 
+          script: docker-compose build 
+          
+      - name: docker-compose up
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.AWS_APPLICATION_DNS }}
+          username: ec2-user
+          port: 22 
+          script: docker-compose up -d

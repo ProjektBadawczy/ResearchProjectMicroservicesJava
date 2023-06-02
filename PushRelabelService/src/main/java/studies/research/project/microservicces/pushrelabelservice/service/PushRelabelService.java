@@ -2,6 +2,8 @@ package studies.research.project.microservicces.pushrelabelservice.service;
 
 import org.springframework.stereotype.Service;
 import studies.research.project.microservicces.pushrelabelservice.model.*;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +39,20 @@ public class PushRelabelService {
         return residualGraph;
     }
 
-    public int calculateMaxFlow(DirectedGraph graph, int source, int destination)
+    public int calculateMaxFlow(int id, int source, int destination)
     {
+        
+        Mono<DirectedGraph> directedGraphMono = WebClient.create("http://graph-service:80")
+            .get()
+            .uri(uriBuilder -> uriBuilder.path("/directedGraph")
+                    .queryParam("id", Integer.toString(id))
+                    .build())
+            .retrieve()
+            .bodyToMono(DirectedGraph.class);
+
+
+        DirectedGraph graph = directedGraphMono.block();
+
         DirectedGraph residualGraph = initResidualGraph(graph);
 
         List<Integer> queue = new ArrayList<>();

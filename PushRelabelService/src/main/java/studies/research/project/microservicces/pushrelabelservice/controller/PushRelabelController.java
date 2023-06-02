@@ -22,15 +22,7 @@ public class PushRelabelController {
 
     @GetMapping("/pushRelabelMaxGraphFlow")
     public ResponseEntity<Integer> getPushRelabelMaxGraphFlow(@RequestParam("id") String id, @RequestParam String source, @RequestParam String destination) {
-
-        String directedGraphServiceUrl = "http://graph-service:80/directedGraph?id=" + id;
-        return Try.of(() -> new RestTemplate().getForEntity(directedGraphServiceUrl, DirectedGraph.class).getBody())
-                .map(graph -> {
-                    int s = Integer.parseInt(source);
-                    int d = Integer.parseInt(destination);
-                    return new ResponseEntity<>(pushRelabelService.calculateMaxFlow(graph, s, d), OK);
-                })
-                .onFailure(System.err::println)
-                .getOrElseGet(e -> new ResponseEntity<>(BAD_REQUEST));
+        int maxFlow = (pushRelabelService.calculateMaxFlow(Integer.parseInt(id), Integer.parseInt(source), Integer.parseInt(destination)));
+        return new ResponseEntity<>(maxFlow, OK);
     }
 }
